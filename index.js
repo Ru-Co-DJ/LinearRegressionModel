@@ -59,14 +59,14 @@ model.add(tf.layers.dense({inputShape:[70], units:30, activation:"relu"}))
 model.add(tf.layers.dense({inputShape:[30], units:20, activation:"relu"}))
 model.add(tf.layers.dense({inputShape:[20], units:10, activation:"relu"}))
 
-model.add(tf.layers.dense({inputShape:[30], units:1, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[10], units:1, activation:"relu"}))
 
 model.summary()
 
 
 model.compile({
     loss: tf.losses.meanSquaredError,
-    optimizer: tf.train.sgd(0.009),
+    optimizer: tf.train.adam(0.001),
     metrics: ["accuracy"],
   });
 
