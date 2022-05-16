@@ -56,10 +56,7 @@ model.add(tf.layers.dense({inputShape:[xs[0].length], units:120, activation:"rel
 model.add(tf.layers.dense({inputShape:[120], units:90, activation:"relu"}))
 model.add(tf.layers.dense({inputShape:[90], units:70, activation:"relu"}))
 model.add(tf.layers.dense({inputShape:[70], units:30, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[30], units:20, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[20], units:10, activation:"relu"}))
-
-model.add(tf.layers.dense({inputShape:[10], units:1, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[30], units:1, activation:"relu"}))
 
 model.summary()
 
