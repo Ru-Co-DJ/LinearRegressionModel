@@ -52,18 +52,17 @@ console.log(ys)
 const model = sequential()
 
 model.add(tf.layers.dense({inputShape:[xs[0].length], units:120, activation:"relu"}))
-
-model.add(tf.layers.dense({inputShape:[120], units:90, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[90], units:70, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[70], units:30, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[30], units:1, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[120], units:100, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[100], units:100, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[100], units:80, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[80], units:1, activation:"relu"}))
 
 model.summary()
 
 
 model.compile({
     loss: tf.losses.meanSquaredError,
-    optimizer: tf.train.adam(0.001),
+    optimizer: tf.train.adam(0.01),
     metrics: ["accuracy"],
   });
 
