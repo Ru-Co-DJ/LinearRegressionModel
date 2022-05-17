@@ -52,10 +52,10 @@ console.log(ys)
 const model = sequential()
 
 model.add(tf.layers.dense({inputShape:[xs[0].length], units:120, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[120], units:100, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[100], units:100, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[100], units:80, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[80], units:1, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[120], units:80, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[80], units:50, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[50], units:30, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[30], units:1, activation:"relu"}))
 
 model.summary()
 
