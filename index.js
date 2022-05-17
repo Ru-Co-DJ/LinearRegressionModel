@@ -51,11 +51,11 @@ console.log(ys)
 // length of xs is 129
 const model = sequential()
 
-model.add(tf.layers.dense({inputShape:[xs[0].length], units:100, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[100], units:80, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[80], units:50, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[50], units:20, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[20], units:1, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[xs[0].length], units:120, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[120], units:90, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[90], units:60, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[60], units:40, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[40], units:1, activation:"relu"}))
 
 model.summary()
 
@@ -119,3 +119,34 @@ console.log(arrr1)
     `prediction for Wilaya:"Oran", Marque:"Equiplique", Modele:"Over Size", Quantite:35 ` +
       model.predict(tf.tensor(arrr1, [1, xs[0].length])).arraySync()*10000
   );
+/*
+const newData2 = {
+    Wilaya:"Oran",
+    Marque:"Lefties",
+    Modele:"ORG",
+    Quantite:1,
+    Benefice:600
+}
+
+const arrr2 = [
+    newData1.Quantite,
+    oneHot(cat.WILAYAS.indexOf(newData2.Wilaya),cat.WILAYAS.length), // wilaya
+    oneHot(cat.MARQUES.indexOf(newData2.Marque),cat.MARQUES.length), //marque
+    oneHot(cat.MODELS.indexOf(newData2.Modele),cat.MODELS.length) //model
+] .flat()
+
+console.log(arrr1)
+
+  console.log(
+    `prediction for Wilaya:"Oran", Marque:"ShootPower", Modele:"lecra", Quantite:1 ` +
+      model.predict(tf.tensor(arrr1, [1, 59])).arraySync()*10000
+  );
+
+  console.log(
+    `prediction for Wilaya:"Tiaret", Marque:"Lefties", Modele:"ORG", Quantite:1 ` +
+      model.predict(tf.tensor(arrr2, [1, 59])).arraySync()*10000
+  );
+  
+
+
+*/
