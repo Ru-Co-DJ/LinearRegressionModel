@@ -92,11 +92,7 @@ await model
 
 
 
-//data to test {"Wilaya":"Oran",","Marque":"Equiplique","Modele":"Over Size",Quantite":35,"Benefice":12250}
-
-
-
-
+// data to test {"Wilaya":"Oran",","Marque":"Equiplique","Modele":"Over Size",Quantite":35,"Benefice":12250}
 const newData1 = {
     Wilaya:"Oran",
     Marque:"Equiplique",
@@ -104,6 +100,47 @@ const newData1 = {
     Quantite:35,
     Benefice:12250
 }
+
+
+// "Wilaya":"Oran","Marque":"dior","Modele":"semelle bleu","Quantite":1,"Gratuits":0,"PT":5200,"Benefice":1200}
+const newData2 = {
+  Wilaya:"Oran",
+  Marque:"dior",
+  Modele:"semelle bleu",
+  Quantite:1,
+  Benefice:1200
+}
+
+
+//"Wilaya":"Oran","Marque":"K","Modele":"divers","Quantite":1,"Gratuits":0,"PT":4000,"Benefice":600}
+const newData3 = {
+  Wilaya:"Oran",
+  Marque:"K",
+  Modele:"divers",
+  Quantite:1,
+  Benefice:600
+}
+
+//"Wilaya":"Oran","Marque":"ShootPower","Modele":"lecra","Quantite":1,"Gratuits":0,"PT":2100,"Benefice":700}
+const newData4 = {
+  Wilaya:"Oran",
+  Marque:"ShootPower",
+  Modele:"lecra",
+  Quantite:1,
+  Benefice:700
+}
+
+
+//"Wilaya":"Oran","Marque":"foot","Modele":1,"Quantite":1,"Gratuits":0,"PT":1200,"Benefice":300}
+const newData5 = {
+  Wilaya:"Oran",
+  Marque:"foot",
+  Modele:1,
+  Quantite:1,
+  Benefice:300
+}
+
+
 const arrr1 = [
     newData1.Quantite,
     oneHot(cat.WILAYAS.indexOf(newData1.Wilaya),cat.WILAYAS.length), // wilaya
@@ -111,42 +148,55 @@ const arrr1 = [
     oneHot(cat.MODELS.indexOf(newData1.Modele),cat.MODELS.length) //model
 ] .flat()
 
-
-
-console.log(arrr1)
-
   console.log(
-    `prediction for Wilaya:"Oran", Marque:"Equiplique", Modele:"Over Size", Quantite:35 ` +
+    `\nprediction for Wilaya:${newData1.Wilaya}, Marque:${newData1.Marque}, Modele:${newData1.Modele}, Quantite:${newData1.Quantite} ` +
       model.predict(tf.tensor(arrr1, [1, xs[0].length])).arraySync()*10000
   );
-/*
-const newData2 = {
-    Wilaya:"Oran",
-    Marque:"Lefties",
-    Modele:"ORG",
-    Quantite:1,
-    Benefice:600
-}
 
-const arrr2 = [
-    newData1.Quantite,
+  const arrr2 = [
+    newData2.Quantite,
     oneHot(cat.WILAYAS.indexOf(newData2.Wilaya),cat.WILAYAS.length), // wilaya
     oneHot(cat.MARQUES.indexOf(newData2.Marque),cat.MARQUES.length), //marque
     oneHot(cat.MODELS.indexOf(newData2.Modele),cat.MODELS.length) //model
 ] .flat()
 
-console.log(arrr1)
-
   console.log(
-    `prediction for Wilaya:"Oran", Marque:"ShootPower", Modele:"lecra", Quantite:1 ` +
-      model.predict(tf.tensor(arrr1, [1, 59])).arraySync()*10000
+    `\nprediction for Wilaya:${newData2.Wilaya}, Marque:${newData2.Marque}, Modele:${newData2.Modele}, Quantite:${newData2.Quantite} ` +
+      model.predict(tf.tensor(arrr2, [1, xs[0].length])).arraySync()*10000
   );
 
+  const arrr3 = [
+    newData3.Quantite,
+    oneHot(cat.WILAYAS.indexOf(newData3.Wilaya),cat.WILAYAS.length), // wilaya
+    oneHot(cat.MARQUES.indexOf(newData3.Marque),cat.MARQUES.length), //marque
+    oneHot(cat.MODELS.indexOf(newData3.Modele),cat.MODELS.length) //model
+] .flat()
+
   console.log(
-    `prediction for Wilaya:"Tiaret", Marque:"Lefties", Modele:"ORG", Quantite:1 ` +
-      model.predict(tf.tensor(arrr2, [1, 59])).arraySync()*10000
+    `\nprediction for Wilaya:${newData3.Wilaya}, Marque:${newData3.Marque}, Modele:${newData3.Modele}, Quantite:${newData3.Quantite} ` +
+      model.predict(tf.tensor(arrr3, [1, xs[0].length])).arraySync()*10000
   );
-  
 
+  const arrr4 = [
+    newData4.Quantite,
+    oneHot(cat.WILAYAS.indexOf(newData4.Wilaya),cat.WILAYAS.length), // wilaya
+    oneHot(cat.MARQUES.indexOf(newData4.Marque),cat.MARQUES.length), //marque
+    oneHot(cat.MODELS.indexOf(newData4.Modele),cat.MODELS.length) //model
+] .flat()
 
-*/
+  console.log(
+    `\nprediction for Wilaya:${newData4.Wilaya}, Marque:${newData4.Marque}, Modele:${newData4.Modele}, Quantite:${newData4.Quantite} ` +
+      model.predict(tf.tensor(arrr4, [1, xs[0].length])).arraySync()*10000
+  );
+
+  const arrr5 = [
+    newData5.Quantite,
+    oneHot(cat.WILAYAS.indexOf(newData5.Wilaya),cat.WILAYAS.length), // wilaya
+    oneHot(cat.MARQUES.indexOf(newData5.Marque),cat.MARQUES.length), //marque
+    oneHot(cat.MODELS.indexOf(newData5.Modele),cat.MODELS.length) //model
+] .flat()
+
+  console.log(
+    `\nprediction for Wilaya:${newData5.Wilaya}, Marque:${newData5.Marque}, Modele:${newData5.Modele}, Quantite:${newData5.Quantite} ` +
+      model.predict(tf.tensor(arrr5, [1, xs[0].length])).arraySync()*10000
+  );
