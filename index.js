@@ -52,8 +52,9 @@ console.log(ys)
 const model = sequential()
 
 model.add(tf.layers.dense({inputShape:[xs[0].length], units:120, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[120], units:90, activation:"relu"}))
-model.add(tf.layers.dense({inputShape:[90], units:60, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[120], units:100, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[100], units:80, activation:"relu"}))
+model.add(tf.layers.dense({inputShape:[80], units:60, activation:"relu"}))
 model.add(tf.layers.dense({inputShape:[60], units:40, activation:"relu"}))
 model.add(tf.layers.dense({inputShape:[40], units:1, activation:"relu"}))
 
@@ -61,8 +62,8 @@ model.summary()
 
 
 model.compile({
-    loss: tf.losses.meanSquaredError,
-    optimizer: tf.train.adam(0.01),
+    loss: tf.losses.absoluteDifference,
+    optimizer: tf.train.adam(0.009),
     metrics: ["accuracy"],
   });
 
@@ -89,7 +90,8 @@ await model
   });
 
 
-
+  //const saveResult = await model.save("localstorage://model1");
+   await model.save("file://./")
 
 
 // data to test {"Wilaya":"Oran",","Marque":"Equiplique","Modele":"Over Size",Quantite":35,"Benefice":12250}
